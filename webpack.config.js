@@ -3,20 +3,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './app/index.js',
   output: {
-    filename: 'app.js'
+    filename: 'app.js',
   },
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'babel', exclude: /node_modules/, include: /app/}
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        include: /app/,
+      },
     ]
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html',
-      inject: 'body'
+      inject: 'body',
     })
-  ]
-};
+  ],
+}
